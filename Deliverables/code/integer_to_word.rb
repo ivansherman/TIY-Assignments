@@ -12,3 +12,7 @@ end
 
 puts word_hash[0]
 
+
+## Logically, if i < 9 then that would be the first word spelled out, however if i is > 10, meaning it has double digits, the method has to seee if its < 20.
+## if i has double digits, meaning i > 20 then the spelled out word would contain a word from the begining of the hash and a second word which would have spelled an
+## integer < 10
