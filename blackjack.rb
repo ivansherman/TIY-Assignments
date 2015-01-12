@@ -1,16 +1,21 @@
 class Card
 
-  attr_reader :suit # I got read of the attr_reader for value
-                    # bc I need to define a method
-                    # to account for face cards
+  attr_reader :suit, :value
 
   def initialize(value, suit)
     @value = value
     @suit = suit
   end
 
+def value
+    return 10 if ["J", "Q", "K"].include?(@value)
+    return 11 if @value == "A"
+    return @value
+  end
+
+=begin
   def value
-    if @value.is_a?(Fixnum)
+    if @value.is_a?(Fixnum)  ## I'm trying to follow your format but I keep getting sidetracked
       @value
     elsif @value == :ace
       11
@@ -18,12 +23,36 @@ class Card
       10
     end
   end
+=end
 
-  def display
+ def display
     "#{@value.to_s.capitalize} of #{suit.to_s.capitalize}"
   end
 end
 
+
+class Deck
+  attr_reader :cards
+
+  def initialize
+    @cards = Deck.build_deck
+  end
+
+  def self.build_deck  ### to defining a method to build a hand, we need to shuffle the "Deck"
+    cards = []
+    [:clubs, :diamonds, :spades, :hearts].each do |suit|
+      (2..10).each do |number|
+        cards << Card.new(suit, value)
+      end
+      ["J", "Q", "K", "A"].each do |facecard|
+        cards << Card.new(suit, facecard)
+      end
+    end
+    cards.shuffle
+  end
+end
+
+=begin
 class Deck
 
   def initialize(cards = nil) # hack for same reason as in Blackjack#initialize
@@ -33,6 +62,7 @@ class Deck
       end
     end.flatten.shuffle
   end
+=end
 
   def size
     @cards.length
