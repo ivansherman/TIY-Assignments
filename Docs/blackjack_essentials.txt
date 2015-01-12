@@ -1,0 +1,23 @@
+
+
+BlackJack Essentials (before coding)
+
+* The dealer and each player get two cards. The dealer's first card faces up, the second faces down. Face cards each 	count as 10, Aces count as 1 or 11, all others count at face value. Any First 2 cards with an Ace with any 10,
+	Jack, Queen, or King is a "Blackjack."
+
+	### A method to shuffle a deck and deal 2 cards to the player and 2 cards to the dealer must be made
+
+* If you have a Blackjack, the dealer pays you one-and-a-half times your bet - unless the dealer also has a Blackjack,
+	in which case it's a "push" and neither wins.
+
+		### We have to define methods to test winner hands, losing, and still in the game.
+
+* If you don't have a Blackjack, you can ask the dealer to "hit" you by using a scratching motion with your fingers
+	on the table.
+
+* The player may draw as many cards as you like (one at a time), but if you go over 21, you "bust" and lose. If you
+	do not want to "hit," you may "stand" by making a side-to-side waving motion with your hand.
+
+
+
+After the player is satisfied with its hand, the dealer will turn his or her down card face up and stand or draw as necessary.
