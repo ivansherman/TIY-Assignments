@@ -9,11 +9,8 @@ class Deck
 				[2, 3, 4, 5, 6, 7, 8, 9, 10, "jack", "queen", "king", "ace"].each do |value|
 					@cards << Card.new(value, suit)
 			end
-		end.shuffle
-	end
-
-	def display
-		"#{@value.to_s.capitalize} of #{suit.to_s.capitalize}"
+		end
+		shuffle
 	end
 
 	def shuffle
