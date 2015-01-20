@@ -10,12 +10,12 @@ class Player
 		@hand = cards
 	end
 
-	def display
-		"#{card_display}"
+	def card_display
+		@hand.collect{ |card| card.display }.join (', ')
 	end
 
-	def card_display
-		@hand.map{ |card| card.display }.join (', ')
+	def card_values
+		@hand.collect{|card| card.value}
 	end
 
 	def high_card
@@ -34,7 +34,6 @@ class Player
 	end
 
 	def has_3_of_a_kind?
-		card_values = @hand.collect{|card| card.value}
 		card_values.uniq.length == 1		
 	end
 
@@ -42,3 +41,14 @@ class Player
 		card_suits = @hand.collect{|card| card.suit}
 		card_suits.uniq.length == 1
 	end
+
+	def has_straight
+		sorted_values = card_values.sort
+		sorted_values[2] - sorted_values[0] == 2 && has_no_matching_cards?
+	end
+
+	def straight_flush
+		self.has_straight? && self.has_flush?
+	end
+
+end

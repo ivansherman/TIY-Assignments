@@ -23,7 +23,7 @@ class PlayerTest < MiniTest::Unit::TestCase
 	end
 
 	def test_player_hand_has_a_pair
-		pair_hand = Player.new([Card.new(10, :spades), Card.new(10, :hearts), Card.new(5, :spades)])
+		pair_hand = Player.new([Card.new(9, :spades), Card.new(9, :hearts), Card.new(5, :spades)])
 		assert pair_hand.has_pair?
 	end
 
