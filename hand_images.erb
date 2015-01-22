@@ -1,0 +1,19 @@
+
+<% require './deck' %>
+<p> Hand pictures: </p>
+
+
+<p>
+<% def to_img %>
+<% hand = Deck.new.deal(52) %>
+<% card_values = hand.collect {|card| card.value}.uniq %>
+<% card_suits = hand.collect {|card| card.suit}.uniq %>
+
+	<% all_card_suits.each do |s| %>
+		<% all_card_values.each do |v| %>
+			<img src="/Users/jsh/tiy/tiy-assignments/html/img/<%= v %><%= s %>.svg" height="300" width="300">
+		<% end %>
+	<% end %> </p>
+
+
+   
