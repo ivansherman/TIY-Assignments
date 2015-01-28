@@ -2,10 +2,11 @@ class City < ActiveRecord::Base
 	belongs_to :state
 
 	def fastest_growing
-		cities.order('population_change DESC').index[0][0]
+		order('population_change DESC').map{|city| city.name}.index[0][0]
 	end
 
-	def shrinking
-		order(:change)
+	def self.shrinking
+		where('population_change < 0').map{|city| city.name}
+	end
 	end
 end
